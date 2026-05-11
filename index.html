@@ -10,7 +10,7 @@
     body { 
       font-family: 'DM Mono', Consolas, monospace; 
       background: #0c0c0c; 
-      color: #94a3b8; 
+      color: #cbd5e1; 
       min-height: 100vh;
     }
     @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
@@ -33,7 +33,11 @@
   </style>
 </head>
 <body>
-  <div id="root"></div>
+  <div id="root">
+    <div style="display:flex;align-items:center;justify-content:center;min-height:100vh;background:#0c0c0c;color:#cbd5e1;font-family:monospace;">
+      Loading Vault...
+    </div>
+  </div>
 
   <!-- Firebase SDK -->
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
@@ -157,7 +161,7 @@
       personTabs: { display: 'flex', gap: 4, padding: '8px', borderBottom: '1px solid #181818' },
       personTab: (active) => ({ flex: 1, padding: '8px', background: active ? '#111' : 'transparent', border: '1px solid', borderColor: active ? '#1e1e1e' : 'transparent', color: active ? '#fff' : '#94a3b8', textAlign: 'center', cursor: 'pointer', fontSize: 12 }),
       userInfo: { padding: '12px', borderTop: '1px solid #181818', display: 'flex', alignItems: 'center', justifyContent: 'space-between' },
-      userEmail: { fontSize: 11, color: '#64748b', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: 100 },
+      userEmail: { fontSize: 11, color: '#94a3b8', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: 100 },
       main: { flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden' },
       mainHeader: { padding: '16px 24px', borderBottom: '1px solid #181818', display: 'flex', alignItems: 'center', justifyContent: 'space-between' },
       mainContent: { flex: 1, overflow: 'auto', padding: '24px' },
@@ -166,20 +170,20 @@
       categoryItem: { borderBottom: '1px solid #181818' },
       categoryHeader: { display: 'flex', alignItems: 'center', padding: '12px 16px', cursor: 'pointer', gap: 8, transition: 'background 0.15s' },
       categoryTitle: { flex: 1, fontSize: 13, color: '#fff' },
-      categoryCount: { fontSize: 11, color: '#64748b', background: '#111', padding: '2px 6px', borderRadius: 10 },
+      categoryCount: { fontSize: 11, color: '#94a3b8', background: '#1e1e1e', padding: '2px 6px', borderRadius: 10 },
       subcategoryItem: { padding: '8px 16px 8px 32px' },
       subcategoryHeader: { display: 'flex', alignItems: 'center', padding: '8px 0', cursor: 'pointer', gap: 8 },
-      subcategoryTitle: { fontSize: 12, color: '#94a3b8' },
+      subcategoryTitle: { fontSize: 12, color: '#cbd5e1' },
       credRow: { display: 'flex', alignItems: 'center', padding: '8px 16px 8px 48px', gap: 12, borderTop: '1px solid #181818' },
       credPlatform: { flex: 1, fontSize: 13, color: '#fff' },
-      credUser: { flex: 1, fontSize: 12, color: '#64748b' },
-      credPass: { fontSize: 12, color: '#64748b', display: 'flex', alignItems: 'center', gap: 4 },
-      iconBtn: { background: 'transparent', border: 'none', color: '#64748b', padding: 4, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', borderRadius: 4, transition: 'all 0.15s' },
+      credUser: { flex: 1, fontSize: 12, color: '#94a3b8' },
+      credPass: { fontSize: 12, color: '#94a3b8', display: 'flex', alignItems: 'center', gap: 4 },
+      iconBtn: { background: 'transparent', border: 'none', color: '#94a3b8', padding: 4, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', borderRadius: 4, transition: 'all 0.15s' },
       btn: { padding: '8px 16px', background: '#111', border: '1px solid #1e1e1e', color: '#94a3b8', cursor: 'pointer', fontSize: 13, borderRadius: 4, transition: 'all 0.15s' },
       btnPrimary: { background: '#1e1e1e', color: '#fff', border: '1px solid #2a2a2a' },
       btnDanger: { background: '#2a1515', color: '#ef4444', border: '1px solid #3a2020' },
       input: { width: '100%', padding: '10px 12px', background: '#111', border: '1px solid #1e1e1e', color: '#94a3b8', borderRadius: 4, outline: 'none', marginBottom: 12 },
-      label: { display: 'block', fontSize: 11, color: '#64748b', marginBottom: 6, textTransform: 'uppercase', letterSpacing: 0.5 },
+      label: { display: 'block', fontSize: 11, color: '#94a3b8', marginBottom: 6, textTransform: 'uppercase', letterSpacing: 0.5 },
       modal: { position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.8)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1000 },
       modalContent: { background: '#111', border: '1px solid #1e1e1e', borderRadius: 8, padding: 24, width: 360, maxWidth: '90vw' },
       modalTitle: { fontSize: 16, color: '#fff', marginBottom: 20, fontWeight: 500 },
@@ -187,11 +191,11 @@
       authScreen: { display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', background: '#0c0c0c' },
       authCard: { width: 320, background: '#111', border: '1px solid #1e1e1e', borderRadius: 8, padding: 32 },
       authTitle: { fontSize: 24, color: '#fff', textAlign: 'center', marginBottom: 8 },
-      authSubtitle: { fontSize: 12, color: '#64748b', textAlign: 'center', marginBottom: 24 },
+      authSubtitle: { fontSize: 12, color: '#94a3b8', textAlign: 'center', marginBottom: 24 },
       error: { color: '#ef4444', fontSize: 12, marginBottom: 12, padding: '8px 12px', background: '#2a1515', borderRadius: 4 },
-      empty: { textAlign: 'center', padding: '40px 20px', color: '#64748b', fontSize: 13 },
-      settingsBtn: { display: 'flex', alignItems: 'center', gap: 8, padding: '12px 16px', cursor: 'pointer', borderTop: '1px solid #181818', color: '#64748b', fontSize: 12 },
-      chevron: (open) => ({ transform: open ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.2s', color: '#64748b' }),
+      empty: { textAlign: 'center', padding: '40px 20px', color: '#94a3b8', fontSize: 13 },
+      settingsBtn: { display: 'flex', alignItems: 'center', gap: 8, padding: '12px 16px', cursor: 'pointer', borderTop: '1px solid #181818', color: '#94a3b8', fontSize: 12 },
+      chevron: (open) => ({ transform: open ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.2s', color: '#94a3b8' }),
       formRow: { display: 'flex', gap: 8, marginBottom: 12 },
       formCol: { flex: 1 }
     };
@@ -213,7 +217,7 @@
     const Loading = () => (
       <div style={{...styles.authScreen, flexDirection: 'column', gap: 16}}>
         <div className="spinner" style={{width: 32, height: 32}}></div>
-        <span style={{color: '#64748b', fontSize: 13}}>Loading...</span>
+        <span style={{color: '#94a3b8', fontSize: 13}}>Loading...</span>
       </div>
     );
 
